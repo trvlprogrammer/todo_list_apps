@@ -37,6 +37,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    # adding res framework, knox and our apps
     'rest_framework',
     'todo',
     'frontend',
@@ -44,6 +45,7 @@ INSTALLED_APPS = [
     'accounts'
 ]
 
+# adding rest framework
 REST_FRAMEWORK = {
     'DEFAULT_AUTHENTICATION_CLASSES': ('knox.auth.TokenAuthentication',)
 }
@@ -129,6 +131,6 @@ USE_TZ = True
 STATIC_URL = '/static/'
 
 MEDIA_URL = '/media/'
-
+# define the media url where you wanna put the file(in this apps profile picture)
 MEDIA_ROOT = os.path.join('/Volumes', 'alfatihridho',
                           'rest_framework', 'todo_list')
