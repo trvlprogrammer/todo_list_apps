@@ -1,6 +1,8 @@
 from django.db import models
 from django.contrib.auth.models import User
 
+# todo item model
+
 
 class TodoItem(models.Model):
     name = models.CharField(max_length=150)

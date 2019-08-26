@@ -20,7 +20,6 @@ export const getProfile = () => (dispatch, getState) => {
 
 // UPDATE PROFILE
 export const updateProfile = (id, profileItem) => (dispatch, getState) => {
-  console.log(profileItem);
   axios
     .put(`/api/profile/${id}/`, profileItem, tokenConfig(getState))
     .then(res => {

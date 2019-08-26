@@ -22,10 +22,12 @@ router.register('api/profile', UserProfileViewset, 'profile')
 
 
 urlpatterns = [
+    # in auth i use django knox
     path('api/auth', include('knox.urls')),
     path('api/auth/register', RegisterAPI.as_view()),
     path('api/auth/login', LoginAPI.as_view()),
     path('api/auth/user', UserAPI.as_view()),
+    # in this apps i use knox to logout
     path('api/auth/logout', knox_views.LogoutView.as_view(), name="knox_logout"),
     # path('api/profile', include((router.urls, 'profile'), namespace='profil'))
     # path('api/profile', profile_detail, name="profile"),

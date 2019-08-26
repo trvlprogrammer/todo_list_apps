@@ -16,7 +16,6 @@ export class Profile extends Component {
   }
 
   render() {
-    // console.log(this.props.profile);
     return (
       <Fragment>
         <div className="pt-4">

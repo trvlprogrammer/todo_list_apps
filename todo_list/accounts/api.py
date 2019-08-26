@@ -53,6 +53,7 @@ class UserAPI(generics.RetrieveAPIView):
         return self.request.user
 
 
+# api for userProfile
 class UserProfileViewset(viewsets.ModelViewSet):
 
     permission_classes = [

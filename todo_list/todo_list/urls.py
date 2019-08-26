@@ -9,3 +9,4 @@ urlpatterns = [
     path('', include('todo.urls')),
     path('', include('accounts.urls')),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+# static is for accessing media url, when you save your file in directory you need it
