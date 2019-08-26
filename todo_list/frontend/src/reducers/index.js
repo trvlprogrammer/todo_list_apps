@@ -14,3 +14,5 @@ export default combineReducers({
   profileReducer: profile,
   todoHistoryReducer: todoHistory
 });
+
+// this file is basically just for meeting point for all reducers

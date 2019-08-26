@@ -3,7 +3,7 @@ import axios from "axios";
 import { createMessage, returnErrors } from "./messages";
 import { tokenConfig } from "./auth";
 
-// get todo list
+// get todo historys
 export const gettodoHistory = () => (dispatch, getState) => {
   axios
     .get("/api/historys/", tokenConfig(getState))
@@ -18,6 +18,8 @@ export const gettodoHistory = () => (dispatch, getState) => {
     );
 };
 
+// delete todo historys
+
 export const deletetodoHistory = id => (dispatch, getState) => {
   console.log(id);
   axios
@@ -29,6 +31,7 @@ export const deletetodoHistory = id => (dispatch, getState) => {
         payload: id
       });
     })
-    .catch(err => console.log(err));
-  // dispatch(returnErrors(err.response.data, err.response.status))
+    .catch(err =>
+      dispatch(returnErrors(err.response.data, err.response.status))
+    );
 };

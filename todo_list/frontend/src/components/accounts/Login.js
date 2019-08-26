@@ -15,6 +15,7 @@ export class Login extends Component {
     isAuthenticated: PropTypes.bool
   };
 
+  // what happen when user click submit button, it will call this function
   onSubmit = e => {
     e.preventDefault();
     this.props.loginUser(this.state.username, this.state.password);
@@ -23,6 +24,7 @@ export class Login extends Component {
   onChange = e => this.setState({ [e.target.name]: e.target.value });
 
   render() {
+    // if user is autenthenticated then it will redirect to home menu/url
     if (this.props.isAuthenticated) {
       return <Redirect to="/" />;
     }
@@ -68,9 +70,13 @@ export class Login extends Component {
   }
 }
 
+// if you need to access your redux you need mapStateToProps
+
 const mapStateToProps = state => ({
   isAuthenticated: state.authReducer.isAuthenticated
 });
+
+// and dont forget connect function when you are accessing redux
 
 export default connect(
   mapStateToProps,

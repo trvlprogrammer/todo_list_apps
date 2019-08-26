@@ -28,8 +28,8 @@ export class Profile extends Component {
               <div className="col-md-8">
                 <div className="card-body">
                   <div className="float-right">
-                    <button className="btn btn-info">
-                      <Link to="/profile/edit" className="text-light">
+                    <button className="btn btn-outline-info">
+                      <Link to="/profile/edit" className="text-dark">
                         Edit
                       </Link>
                     </button>
@@ -54,10 +54,14 @@ export class Profile extends Component {
   }
 }
 
+// if you need to access your redux you need mapStateToProps
+
 const mapStateToProps = state => ({
   profile: state.profileReducer.profile,
   auth: state.authReducer
 });
+
+// and dont forget connect function when you are accessing redux
 
 export default connect(
   mapStateToProps

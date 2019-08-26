@@ -11,6 +11,7 @@ export class Alerts extends Component {
 
   componentDidUpdate(prevProps) {
     const { error, alert, message } = this.props;
+    // it will check the changes beetwen new prop error and previous prop error
     if (error !== prevProps.error) {
       if (error.msg.name) alert.error(`Title : ${error.msg.name.join()}`);
       if (error.msg.start_date)
@@ -22,6 +23,7 @@ export class Alerts extends Component {
         alert.error(error.msg.non_field_errors.join());
       if (error.msg.username) alert.error(error.msg.username.join());
     }
+    // check the message between prefious message and new message from props
     if (message !== prevProps.message) {
       if (message.todoDeleted) alert.success(message.todoDeleted);
       if (message.todoAdded) alert.success(message.todoAdded);
@@ -35,9 +37,11 @@ export class Alerts extends Component {
   }
 }
 
+// if you need to access your redux you need mapStateToProps
 const mapStateToProps = state => ({
   error: state.errorsReducer,
   message: state.messagesReducer
 });
 
+// and dont forget connect function when you are accessing redux
 export default connect(mapStateToProps)(withAlert()(Alerts));

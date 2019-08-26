@@ -22,6 +22,7 @@ import {
   Redirect
 } from "react-router-dom";
 
+// define configuration for alert options
 const alertOptions = {
   position: "top center",
   timeout: 3000,

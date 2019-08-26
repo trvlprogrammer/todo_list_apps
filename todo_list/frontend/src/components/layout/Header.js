@@ -14,7 +14,7 @@ export class Header extends Component {
     const { isAuthenticated, user } = this.props.auth;
 
     const authLinks = (
-      <ul className="navbar-nav ml-auto mt-2 mt-lg-0">
+      <ul className="navbar-nav">
         <li className="nav-item">
           <Link to="/" className="nav-link text-light">
             Todo List
@@ -42,7 +42,7 @@ export class Header extends Component {
     );
 
     const guestLinks = (
-      <ul className="navbar-nav ml-auto mt-2 mt-lg-0">
+      <ul className="navbar-nav">
         <li className="nav-item">
           <Link to="/register" className="nav-link text-light">
             Register
@@ -57,33 +57,40 @@ export class Header extends Component {
     );
 
     return (
-      <nav className="navbar navbar-expand-sm navbar-primary bg-primary">
+      // this is the navbar
+      <nav className="navbar navbar-expand-lg navbar-dark bg-primary">
         <div className="container">
           <span className="navbar-text mr-3 text-light">
-            <strong>{user ? `Hello ${user.username}` : ""}</strong>
+            <strong>{user ? `Hello ${user.username}` : "To Do List"}</strong>
           </span>
           <button
             className="navbar-toggler"
             type="button"
             data-toggle="collapse"
-            data-target="#navbarText"
-            aria-controls="navbarText"
+            data-target="#navbarNav"
+            aria-controls="navbarNav"
             aria-expanded="false"
             aria-label="Toggle navigation"
           >
-            <span className="navbar-toggler-icon" />
+            <span className="navbar-toggler-icon text-light"></span>
           </button>
-          <div className="collapse navbar-collapse" id="navbarText" />
-          {isAuthenticated ? authLinks : guestLinks}
+          <div className="collapse navbar-collapse" id="navbarNav">
+            {/* this will check if the user is authenticated(login user) or not, if now it will call guest menu */}
+            {isAuthenticated ? authLinks : guestLinks}
+          </div>
         </div>
       </nav>
     );
   }
 }
 
+// if you need to access your redux you need mapStateToProps
+
 const mapStateToProps = state => ({
   auth: state.authReducer
 });
+
+// and dont forget connect function when you are accessing redux
 
 export default connect(
   mapStateToProps,
